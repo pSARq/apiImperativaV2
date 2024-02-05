@@ -1,0 +1,71 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.0'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.todoapp'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+/*
+
+//	ESTO FUNCIONA PARA CONFIGURAR SPRING BOOT 2 CON SWAGGER
+
+//	la configuración de swagger con estas dependencias se encuentra en la clase SwaggerConfig
+//	en el siguiente link se encuentra mas info
+//
+//	https://www.youtube.com/watch?v=z_dLYcQqSHI
+
+	plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.5.8'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'io.springfox:springfox-swagger2:2.9.2' // permite documentar la api en formato para la computadora lo entienda
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2' // permite documentar la api en formato para las personas lo entiendan
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'*/
+
+
+
+//	ESTO FUNCIONA PARA CONFIGURAR SPRING BOOT 3 CON SWAGGER
+//
+//	la configuración de swagger con estas dependencias se encuentra en la clase OpenAPIConfig
+//	en el siguiente link se encuentra mas info
+//
+//	https://www.bezkoder.com/spring-boot-swagger-3/#Swagger_Configuration_in_Spring_Boot
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.3'
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
