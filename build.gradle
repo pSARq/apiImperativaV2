@@ -38,7 +38,7 @@ dependencies {
 }
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web' //Tambien es importante esta dependencia para swagger
 	implementation 'io.springfox:springfox-swagger2:2.9.2' // permite documentar la api en formato para la computadora lo entienda
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2' // permite documentar la api en formato para las personas lo entiendan
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -56,8 +56,18 @@ dependencies {
 //
 //	https://www.bezkoder.com/spring-boot-swagger-3/#Swagger_Configuration_in_Spring_Boot
 
+	/*
+	PARA MAYOR INFORMACIÓN
+	https://springdoc.org/#faq
+
+	para que swagger funcione correctamente con reactividad se deben usar estas 3 librerias
+	implementation 'org.springframework.boot:spring-boot-starter-webflux' //habilita reactividad con webflux
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webflux-api', version: '2.5.0' //habilita la api de swagger. Por ejemplo mostrar la documentacion tipo .json o .yml a traves de la ruta por defecto http://localhost:8080/v3/api-docs
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webflux-ui', version: '2.5.0' //habilita la interfaz grafica de swagger a traves de la ruta por defecto http://localhost:8080/swagger-ui.html
+	*/
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web' //Tambien es importante esta dependencia para swagger
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.3'
 	implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
 	compileOnly 'org.projectlombok:lombok'
